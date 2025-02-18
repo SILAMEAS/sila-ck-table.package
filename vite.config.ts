@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base:"/sila-ck-notification-npm/",
+  base: "/sila-ck-table-mui-rtk-query-npm/",  // ✅ Corrected to match repo name
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
