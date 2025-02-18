@@ -32,7 +32,8 @@ export default [
       terser(),
       postcss(),
     ],
-    external: ["react", "react-dom"],
+    external: ["react", "react-dom", "@emotion/react", "@emotion/cache", "@emotion/styled", /@mui\/*/],
+
   },
   {
     input: "src/index.ts",

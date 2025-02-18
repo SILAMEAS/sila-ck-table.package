@@ -1,13 +1,13 @@
 import React from "react"; 
 import './App.css'
 import CTableExample from './CTableExample'
-import { Stack } from '@mui/material'
+import {Box} from '@mui/material'
 
 function App() {
  
-  return <Stack height={'100vh'}>
+  return <Box bgcolor={'red'} height={'100vh'} width={"100%"}>
     <CTableExample/>
-  </Stack>
+  </Box>
 }
 
 export default App

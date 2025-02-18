@@ -1,13 +1,9 @@
 import {
-  Box,
-  TableCell,
+
   TableCellProps,
-  TableHead,
-  TableRow,
-  TableSortLabel,
   TableSortLabelProps,
 } from '@mui/material';
-import React, {ReactNode} from 'react';
+import React from 'react';
 export enum FilterBy {
   COMPANY = 'company',
   DEPARTMENT = 'department',
@@ -39,14 +35,14 @@ import {SxProps} from '@mui/material';
 import { Ascending, Descending } from '../constant/TableConstant';
 export interface HeadCellCustom<T> {
   id: keyof T;
-  label: string | ReactNode;
+  label: string | React.ReactNode;
   disableSort: boolean;
   tableCellProps: TableCellProps;
   tableBodyCellProps?: TableCellProps;
   tableSortLabelProps: TableSortLabelProps;
   hidden?: boolean;
-  render?: (props: T, index?: number) => ReactNode;
-  extendsRow?: (props: T, index?: number) => ReactNode;
+  render?: (props: T, index?: number) => React.ReactNode;
+  extendsRow?: (props: T, index?: number) => React.ReactNode;
   stopPropagation?: boolean;
   noPaddingRow?: boolean;
 }
@@ -60,7 +56,7 @@ export enum EnumTableType {
   grid = 'grid',
 }
 export interface ITableCustom<P, T> {
-  emptyData?: ReactNode;
+  emptyData?: React.ReactNode;
   tableFooterType: EnumTableFooterType;
   handleSelectAllClick: (event: React.ChangeEvent<HTMLInputElement>) => void;
   headCells: HeadCellCustom<T>[];
@@ -82,10 +78,10 @@ export interface ITableCustom<P, T> {
   onlySearch?: boolean;
   placeholder?: string;
   tableContainerSx?: SxProps;
-  gridLayout?: ReactNode;
+  gridLayout?: React.ReactNode;
   display?: EnumTableType;
   paginationCollapse?: boolean;
-  selectedUI?: ReactNode;
+  selectedUI?: React.ReactNode;
   loadingSlow?: boolean;
 }
 export interface ICellCustom<R> {

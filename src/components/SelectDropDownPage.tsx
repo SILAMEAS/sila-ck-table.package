@@ -7,14 +7,14 @@ import {
   Typography,
   TypographyProps,
 } from '@mui/material';
-import {ReactNode} from 'react';
+import React from 'react';
 import { StyleConstant } from '../constant/StyleConstant';
 
 
 type ISelectDropDownPage = {
   rowPerPagesOption: number[];
   value: string;
-  handleChange: (event: SelectChangeEvent<any>, child: ReactNode) => void;
+  handleChange: (event: SelectChangeEvent<any>, child: React.ReactNode) => void;
   selectProps?: SelectProps;
   menuItemProps?: MenuItemProps;
   typographyProps?: TypographyProps;

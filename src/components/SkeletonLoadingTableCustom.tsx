@@ -1,7 +1,7 @@
 
 import {Skeleton, Stack, TableCell, TableRow, Typography} from '@mui/material';
 
-import {ReactNode} from 'react';
+import React from 'react';
 
 export const SkeletonLoadingTableCustom = ({
   isFetching,
@@ -10,15 +10,8 @@ export const SkeletonLoadingTableCustom = ({
 }: {
   isFetching: boolean;
   isLoading: boolean;
-  emptyData?: ReactNode;
+  emptyData?: React.ReactNode;
 }) => {
-  // const {
-  //   numberConstants: {_7, _2, _8, _0_5},
-  //   overflow: {auto},
-  //   padding: {none},
-  //   position: {center},
-  //   variant: {rectangular},
-  // } = SxConstant;
   if (isFetching || isLoading) {
     return (
       <Stack p={2} height={"290px"} width={"100vw"}>

@@ -21,6 +21,7 @@ export function PaginationTableCustom<
   currentData,
   setFilter,
 }: Readonly<IPaginationTableCustom<P, T>>) {
+  console.log('PaginationTableCustom')
 
   const handleSelectPage = (event: SelectChangeEvent<any>) => {
     const newPageSize = Number(event.target.value);

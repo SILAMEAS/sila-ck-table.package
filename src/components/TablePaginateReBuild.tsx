@@ -1,5 +1,5 @@
 import {Pagination} from '@mui/material';
-import {ChangeEvent} from 'react';
+import React from 'react';
 
 type ITablePaginateReBuild = {
   handleChangePage: (event: unknown, newPage: number) => void;
@@ -9,7 +9,7 @@ type ITablePaginateReBuild = {
 
 export const TablePaginateReBuild = (props: ITablePaginateReBuild) => {
   const {handleChangePage, totalPage, page} = props;
-  const onChangePaginate = (event: ChangeEvent<unknown>, page: number) => {
+  const onChangePaginate = (event: React.ChangeEvent<unknown>, page: number) => {
     handleChangePage(event, page);
   };
 

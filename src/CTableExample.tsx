@@ -1,7 +1,6 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import { useTableCustom } from './hooks/useTableCustom';
-import { EnumTableFooterType, ISortFieldUser } from './components/types';
-import { Descending } from './constant/TableConstant';
+import { EnumTableFooterType } from './components/types';
 import { handleProcessPassingData } from './utils/handleProcessPassingData';
 import { TableCustom } from './components/TableCustom';
 import { Stack, Typography } from '@mui/material';
@@ -51,7 +50,7 @@ const CTableExample = <CO extends CollectionDataUserDashboard>() =>
       filter,
       setFilter,
       tableFooterType,
-    } = useTableCustom<CO>(EnumTableFooterType.infiniteScroll);
+    } = useTableCustom<CO>(EnumTableFooterType.pagination);
     /**
      Note : useGetUserByCompanyQuery is rtk query
        const {currentData, isFetching, isError, error, isLoading} =
@@ -99,7 +98,8 @@ const CTableExample = <CO extends CollectionDataUserDashboard>() =>
         //<TableCustom<DocumentTableInterface, CO>
       <TableCustom<any, CO>
         tableContainerSx={{
-          maxHeight: 'auto',
+          height:"100%",
+            width:"100%"
         }}
         setVisibleRows={setVisibleRows}
         currentData={currentData}
@@ -115,20 +115,48 @@ const CTableExample = <CO extends CollectionDataUserDashboard>() =>
             label: "ID",
             tableCellProps: {
               align: "left",
-              padding: "normal",
+              padding: "none",
+                width:"500px",
+                sx:{
+                    paddingLeft:"30px"
+                }
             },
             tableSortLabelProps: {},
             render: data => (
               <Stack
                 direction={"row"}
                 alignItems={"center"}
-                gap={"15px"}>
+                gap={"15px"} pl={"30px"}>
                     <Typography>
-                        {data.id} : {data.name}
+                        # {data.id}
                     </Typography>
               </Stack>
             ),
           },
+            {
+                id: 'name',
+                disableSort: false,
+                label: "Name",
+                tableCellProps: {
+                    align: "left",
+                    padding: "none",
+                    width:"500px",
+                    sx:{
+                        paddingLeft:"30px"
+                    }
+                },
+                tableSortLabelProps: {},
+                render: data => (
+                    <Stack
+                        direction={"row"}
+                        alignItems={"center"}
+                        gap={"15px"} pl={"30px"}>
+                        <Typography>
+                            {data.name}
+                        </Typography>
+                    </Stack>
+                ),
+            }
         ]}
         selected={selected}
         handleSelectAllClick={handleSelectAllClick}

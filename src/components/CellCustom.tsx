@@ -4,7 +4,7 @@ import { uniqueArray } from '../utils/handleProcessPassingData';
 
 export function CellCustom<R extends Record<string, any>>(
   props: Readonly<ICellCustom<R>>,
-): JSX.Element {
+) {
   const {visibleRows, handleViewDetailPage, headCells, selected} = props;
   const topEvents = ['action', 'typeDownloadDoc'];
   return (

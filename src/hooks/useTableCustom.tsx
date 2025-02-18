@@ -1,10 +1,4 @@
-import React, {useState} from 'react';
-import {
-  useLocation,
-  useNavigate,
-  useParams,
-  useSearchParams,
-} from 'react-router-dom';
+import React from 'react';
 import {TableCellProps} from '@mui/material';
 import { Descending } from '../constant/TableConstant';
 import { EnumTableFooterType, FilterBy, IFilterTableCustom, ISortFieldUser } from '../components/types';
@@ -25,19 +19,14 @@ export const useTableCustom = <T extends Record<string, any>>(
   tableFooterType: EnumTableFooterType,
 ) => {
   /** state */
-  const location = useLocation();
-  const navigate = useNavigate();
-  const {userId} = useParams();
-  const [searchParam] = useSearchParams();
-  const flowId = searchParam.get('flowId');
-  const [status, setStatus] = useState<string[]>(['']);
+  const [status, setStatus] = React.useState<string[]>(['']);
   const windowSize = useWindowSize();
-  const [filter, setFilter] = useState<IFilterTableCustom>(defaultFilter);
-  const [visibleRows, setVisibleRows] = useState<Array<T>>([]);
+  const [filter, setFilter] = React.useState<IFilterTableCustom>(defaultFilter);
+  const [visibleRows, setVisibleRows] = React.useState<Array<T>>([]);
   const [selected, setSelected] = React.useState<
     Readonly<Array<number | string>>
   >([]);
-  const [toggle, setToggle] = useState<boolean>(true);
+  const [toggle, setToggle] = React.useState<boolean>(true);
   const actionDataOutSide = {
     error: false,
     isLoading: false,
@@ -132,14 +121,11 @@ export const useTableCustom = <T extends Record<string, any>>(
   return {
     visibleRows,
     selected,
-    navigate,
     filter,
     tableFooterType,
     windowSize,
-    userId,
     status,
     actionDataOutSide,
-    flowId,
     toggle,
     localTableCellProps,
     tempCol,

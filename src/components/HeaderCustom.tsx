@@ -8,29 +8,24 @@ import {
   TableSortLabelProps,
   Typography,
 } from '@mui/material';
-import React, {ReactNode} from 'react';
-// import {Order} from '@/utils/common/table/TableOperator';
-// import {Ascending, Descending} from '@constant/NGContant';
+import React from 'react';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
-// import NGText from '@components/ng-text/NGText';
-// import {styleInTable} from '@components/ng-table/TableDashboard/resource/TCell';
 import {visuallyHidden} from '@mui/utils';
 import { Order } from './types';
 import { Ascending, Descending, styleInTable } from '../constant/TableConstant';
 import { uniqueArray } from '../utils/handleProcessPassingData';
-// import {uniqueArray} from '@components/ng-table/TableCustom/custom/utils/handleProcessPassingData';
 
 export interface HeadCellCustom<T> {
   id: keyof T;
-  label: string | ReactNode;
+  label: string | React.ReactNode;
   disableSort: boolean;
   tableCellProps: TableCellProps;
   tableBodyCellProps?: TableCellProps;
   tableSortLabelProps: TableSortLabelProps;
   hidden?: boolean;
-  render?: (props: T, index?: number) => ReactNode;
-  extendsRow?: (props: T, index?: number) => ReactNode;
+  render?: (props: T, index?: number) =>React.ReactNode;
+  extendsRow?: (props: T, index?: number) => React.ReactNode;
   stopPropagation?: boolean;
   noPaddingRow?: boolean;
 }
