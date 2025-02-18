@@ -1,7 +1,7 @@
 {
-  "homepage": "#",
+  "homepage": "https://SILAMEAS.github.io/sila-ck-table-mui-rtk-query-npm",
   "name": "sila-ck-table-mui-rtk-query-npm",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "description": "table mui with flexible using RTK",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -39,6 +39,7 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
+    "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9.17.0",
     "eslint-plugin-react-hooks": "^5.0.0",
@@ -65,7 +66,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/SILAMEAS/sila-ck-table-npm"
+    "url": "https://github.com/SILAMEAS/sila-ck-table-mui-rtk-query-npm"
   },
   "author": "SILAMEAS",
   "license": "MIT"
