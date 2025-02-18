@@ -12,4 +12,12 @@ export default defineConfig({
       '@hooks': path.resolve(__dirname, './src/hooks'),
     },
   },
+  optimizeDeps: {
+    include: ['react-router-dom','react-waypoint'],
+  },
+  build: {
+    rollupOptions: {
+      external: ['react-router-dom'],
+    },
+  },
 })
