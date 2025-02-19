@@ -11,16 +11,17 @@ import {
 } from '@mui/material';
 import React from 'react';
 import {Waypoint} from 'react-waypoint';
-import { EnumTableType, ITableCustom } from './types';
+import {  ITableCustom } from './types';
 import { useEffectInTableCustom } from '../hooks/useEffectInTableCustom';
 import { Ascending, Descending } from '../constant/TableConstant';
 import { SearchTableCustom } from './SearchTableCustom';
 import { EnhancedTableHeadCustom } from './HeaderCustom';
 import { conditionLoadingSkeleton } from '../utils/conditionLoadingSkeleton';
 import { SkeletonLoadingTableCustom } from './SkeletonLoadingTableCustom';
-import { CellCustom } from './CellCustom';
-import { wayPointProcess } from '../utils/wayPointProcess';
-import { PaginationTableCustom } from './PaginationTableCustom';
+import wayPointProcess from '../utils/wayPointProcess';
+import PaginationTableCustom from './PaginationTableCustom';
+import CellCustom from './CellCustom';
+import EnumTableType from '../constant/enum/EnumTableType';
 // import {FaceToFaceProjectDateContentType} from '@/redux/slides/project-management/face-to-face/faceToFaceSlide';
 // import {EnhancedTableHeadCustom} from '@components/ng-table/TableCustom/custom/header/HeaderCustom';
 // import {
@@ -41,7 +42,7 @@ import { PaginationTableCustom } from './PaginationTableCustom';
 //   typeDownloadDoc: string;
 // };
 
-export function TableCustom<
+export default function TableCustom<
   P extends Record<string, any>,
   T extends Record<string, any>,
 >({

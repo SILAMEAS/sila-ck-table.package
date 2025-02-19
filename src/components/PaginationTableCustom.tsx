@@ -1,7 +1,8 @@
 import { SelectChangeEvent, Stack } from "@mui/material";
-import { EnumTableFooterType, ITableCustom } from "./types";
+import { ITableCustom } from "./types";
 import { TablePaginateReBuild } from "./TablePaginateReBuild";
 import { SelectDropDownPage } from "./SelectDropDownPage";
+import EnumTableFooterType from "../constant/enum/EnumTableFooterType";
 
 type typePick =
   | 'tableFooterType'
@@ -11,7 +12,7 @@ type typePick =
   | 'setFilter';
 interface IPaginationTableCustom<P, T>
   extends Pick<ITableCustom<P, T>, typePick> {}
-export function PaginationTableCustom<
+export default function PaginationTableCustom<
   P extends Record<string, any>,
   T extends Record<string, any>,
 >({

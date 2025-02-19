@@ -14,7 +14,7 @@ import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import {visuallyHidden} from '@mui/utils';
 import { Order } from './types';
 import { Ascending, Descending, styleInTable } from '../constant/TableConstant';
-import { uniqueArray } from '../utils/handleProcessPassingData';
+import uniqueArray from '../utils/uniqueArray';
 
 export interface HeadCellCustom<T> {
   id: keyof T;

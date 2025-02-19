@@ -1,7 +1,8 @@
 import React from 'react';
-import { EnumTableFooterType, ITableCustom } from '../components/types';
+import {  ITableCustom } from '../components/types';
 import { useSnackbar } from 'notistack';
 import { getComparator, stableSort } from '../constant/TableOperator';
+import EnumTableFooterType from '../constant/enum/EnumTableFooterType';
 type typePick =
   | 'tableFooterType'
   | 'setVisibleRows'

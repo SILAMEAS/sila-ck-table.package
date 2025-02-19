@@ -1,4 +1,5 @@
-import { EnumTableFooterType, ITableCustom } from "../components/types";
+import {  ITableCustom } from "../components/types";
+import EnumTableFooterType from "../constant/enum/EnumTableFooterType";
 
 
 type typePick = 'tableFooterType' | 'visibleRows' | 'actionReq';

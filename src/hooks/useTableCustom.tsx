@@ -1,8 +1,8 @@
 import React from 'react';
 import {TableCellProps} from '@mui/material';
 import { Descending } from '../constant/TableConstant';
-import { EnumTableFooterType, FilterBy, IFilterTableCustom, ISortFieldUser } from '../components/types';
-import useWindowSize from './useWindowSize';
+import {  FilterBy, IFilterTableCustom, ISortFieldUser } from '../components/types';
+import EnumTableFooterType from '../constant/enum/EnumTableFooterType';
 
 const defaultFilter: IFilterTableCustom = {
   page:1,
@@ -15,12 +15,11 @@ const defaultFilter: IFilterTableCustom = {
 };
 
 
-export const useTableCustom = <T extends Record<string, any>>(
+const useTableCustom = <T extends Record<string, any>>(
   tableFooterType: EnumTableFooterType,
 ) => {
   /** state */
   const [status, setStatus] = React.useState<string[]>(['']);
-  const windowSize = useWindowSize();
   const [filter, setFilter] = React.useState<IFilterTableCustom>(defaultFilter);
   const [visibleRows, setVisibleRows] = React.useState<Array<T>>([]);
   const [selected, setSelected] = React.useState<
@@ -117,19 +116,26 @@ export const useTableCustom = <T extends Record<string, any>>(
       };
     }
   };
-
+  React.useEffect(() => {
+    console.log("useTableCustom Hook Debug:", {
+      visibleRows,
+      selected,
+      filter,
+      tableFooterType,
+      status,
+      toggle,
+    });
+  }, [visibleRows, selected, filter, tableFooterType, status, toggle]);
   return {
     visibleRows,
     selected,
     filter,
     tableFooterType,
-    windowSize,
     status,
     actionDataOutSide,
     toggle,
     localTableCellProps,
     tempCol,
-    location,
     fieldDirectionInfiniteScroll,
     toggleCollageRow,
     setToggle,
@@ -144,3 +150,4 @@ export const useTableCustom = <T extends Record<string, any>>(
     isInfiniteScroll: tableFooterType === EnumTableFooterType.infiniteScroll,
   };
 };
+export default useTableCustom;

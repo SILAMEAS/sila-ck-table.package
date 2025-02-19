@@ -1,8 +1,8 @@
 import {Divider, TableCell, TableRow} from '@mui/material';
 import { HeadCellCustom, ICellCustom } from './types';
-import { uniqueArray } from '../utils/handleProcessPassingData';
+import uniqueArray from '../utils/uniqueArray';
 
-export function CellCustom<R extends Record<string, any>>(
+export default function CellCustom<R extends Record<string, any>>(
   props: Readonly<ICellCustom<R>>,
 ) {
   const {visibleRows, handleViewDetailPage, headCells, selected} = props;

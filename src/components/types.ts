@@ -33,6 +33,8 @@ export interface IFilterTableCustom {
 
 import {SxProps} from '@mui/material';
 import { Ascending, Descending } from '../constant/TableConstant';
+import EnumTableFooterType from '../constant/enum/EnumTableFooterType';
+import EnumTableType from '../constant/enum/EnumTableType';
 export interface HeadCellCustom<T> {
   id: keyof T;
   label: string | React.ReactNode;
@@ -46,15 +48,8 @@ export interface HeadCellCustom<T> {
   stopPropagation?: boolean;
   noPaddingRow?: boolean;
 }
-export enum EnumTableFooterType {
-  pagination = 'pagination',
-  infiniteScroll = 'infiniteScroll',
-  list = 'list',
-}
-export enum EnumTableType {
-  table = 'table',
-  grid = 'grid',
-}
+
+
 export interface ITableCustom<P, T> {
   emptyData?: React.ReactNode;
   tableFooterType: EnumTableFooterType;

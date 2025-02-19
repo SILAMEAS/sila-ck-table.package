@@ -16,22 +16,23 @@ const useWindowSize = () => {
   const _1600 = useMediaQuery(`(max-width:1600px)`);
   const _1920 = useMediaQuery(`(max-width:1920px)`);
   const [windowSize, setWindowSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: window?.innerWidth,
+    height: window?.innerHeight,
   });
 
   useEffect(() => {
+
     const handleResize = () => {
       setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
+        width: window?.innerWidth,
+        height: window?.innerHeight,
       });
     };
 
-    window.addEventListener('resize', handleResize);
+    window?.addEventListener('resize', handleResize);
 
     // Cleanup the event listener on component unmount
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window?.removeEventListener('resize', handleResize);
   }, []);
 
   return {
