@@ -1,4 +1,4 @@
-import { SxProps } from "@mui/material";
+import { SxProps, TableCellProps } from "@mui/material";
 
 
 export type Sort = 'asc' | 'desc';
@@ -23,4 +23,13 @@ export const styleInTable: SxProps = {
   fontWeight: 500,
   fontSize: 12,
   // textTransform: 'capitalize',
+};
+
+export const localTableCellProps: TableCellProps = {
+  align: 'left',
+  padding: 'none',
+  sx: {
+    minWidth: '150px',
+    width: 'auto',
+  },
 };

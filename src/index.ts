@@ -7,6 +7,10 @@ import {SearchFormTableCustom} from "./components/NGSearch"
 import {PaginationTableCustom} from "./components/PaginationTableCustom"
 import {SkeletonLoadingTableCustom} from "./components/SkeletonLoadingTableCustom"
 import {TableCustom} from "./components/TableCustom"
+import { EnumTableFooterType } from './components/types';
+import { handleProcessPassingData } from './utils/handleProcessPassingData';
+import { getComparator, stableSort } from './constant/TableOperator';
+import {localTableCellProps} from "./constant/TableConstant"
 
 export {
     useEffectInTableCustom,
@@ -17,5 +21,10 @@ export {
     SearchFormTableCustom,
     PaginationTableCustom,
     SkeletonLoadingTableCustom,
-    TableCustom
+    TableCustom,
+    handleProcessPassingData,
+    getComparator,
+    stableSort,
+    localTableCellProps,
+    EnumTableFooterType,
 }

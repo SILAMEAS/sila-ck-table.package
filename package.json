@@ -1,7 +1,7 @@
 {
   "homepage": "https://SILAMEAS.github.io/sila-ck-table-mui-rtk-query-npm/",
   "name": "sila-ck-table-mui-rtk-query-npm",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "table mui with flexible using RTK",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
