@@ -1,9 +1,9 @@
 import React from 'react';
 import { Stack, Typography } from '@mui/material';
-import useTableCustom from './hooks/useTableCustom';
 import handleProcessPassingData from './utils/handleProcessPassingData';
 import EnumTableFooterType from './constant/enum/EnumTableFooterType';
 import TableCustom from './components/TableCustom';
+import { useTableCustom } from './hooks/useTableCustom';
 /**
  * Data sample of backend response
  export interface CampaignProjectData {
