@@ -16,6 +16,7 @@ export default [
         file: packageJson.main,
         format: "cjs",
         sourcemap: true,
+        exports: "named", // important for named exports
       },
       {
         file: packageJson.module,
@@ -23,34 +24,45 @@ export default [
         sourcemap: true,
       },
     ],
-    external: [
-      "react",
-      "react-dom",
-      "@emotion/react",
-      "@emotion/cache",
-      "@emotion/styled",
-      /@mui\/*/,
-    ],
+
+    // Mark peer dependencies and important libs external so Rollup doesn't bundle them
+    external: (id) =>
+      [
+        "react",
+        "react-dom",
+        "@emotion/react",
+        "@emotion/cache",
+        "@emotion/styled",
+        // MUI packages regex - exclude all @mui/*
+      ].some((dep) => id === dep || id.startsWith(dep + "/")),
+
     plugins: [
-      peerDepsExternal(),
+      peerDepsExternal(), // auto excludes peerDependencies from bundle
       resolve(),
       commonjs({
         include: /node_modules/,
-        requireReturnsDefault: "auto", // <-- Important fix here
+        requireReturnsDefault: "auto", // fix CJS interop
       }),
       typescript({
         tsconfig: "./tsconfig.json",
-        allowImportingTsExtensions: true,
-        noEmit: true,
+        // REMOVE noEmit, let rollup emit JS
+        // noEmit: true, <-- remove this
+        sourceMap: true,
+        declaration: false, // declarations handled by rollup-plugin-dts separately
+      }),
+      postcss({
+        extensions: [".css"],
+        inject: false, // do not inject CSS into JS bundle, adjust if needed
+        extract: false, // set to true if you want to output a separate CSS file
       }),
       terser(),
-      postcss(),
     ],
   },
+
+  // Types declaration bundle
   {
     input: "src/index.ts",
-    output: [{ file: packageJson.types }],
-    external: [/\.css$/],
+    output: [{ file: packageJson.types, format: "es" }],
     plugins: [dts.default()],
   },
 ];
