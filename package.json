@@ -1,7 +1,7 @@
 {
   "homepage": "https://SILAMEAS.github.io/sila-ck-table-mui-rtk-query-npm/",
   "name": "sila-ck-table-mui-rtk-query-npm",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "table mui with flexible using RTK",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
@@ -10,10 +10,10 @@
     "dist"
   ],
   "exports": {
-  ".": {
-    "import": "./dist/index.es.js",
-    "require": "./dist/index.cjs.js"
-  }
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js"
+    }
   },
   "scripts": {
     "dev": "vite",
