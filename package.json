@@ -1,33 +1,35 @@
 {
   "homepage": "https://SILAMEAS.github.io/sila-ck-table-mui-rtk-query-npm/",
   "name": "sila-ck-table-mui-rtk-query-npm",
-  "version": "1.0.7",
+  "version": "1.0.10",
   "description": "table mui with flexible using RTK",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "rollup": "rollup -c --bundleConfigAsCjs",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "version-patch":"npm version patch"
+  },
+  "peerDependencies": {
+    "@mui/icons-material": "^5.0.0",
+    "@mui/lab": "^5.0.0-alpha.130",
+    "@mui/material": "^5.0.0",
+    "@mui/x-data-grid": "^6.0.0",
+    "@mui/x-date-pickers": "^5.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "dependencies": {
-    "@emotion/cache": "^11.14.0",
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
-    "@mui/icons-material": "^5.11.11",
-    "@mui/lab": "^5.0.0-alpha.130",
-    "@mui/material": "^5.11.13",
-    "@mui/x-data-grid": "^6.10.0",
-    "@mui/x-date-pickers": "^5.0.0",
     "@types/uuid": "^10.0.0",
     "notistack": "^3.0.2",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
     "react-router-dom": "^7.1.5",
     "react-waypoint": "^10.3.0",
@@ -35,6 +37,11 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
+    "@mui/icons-material": "^5.11.11",
+    "@mui/lab": "^5.0.0-alpha.130",
+    "@mui/material": "^5.11.13",
+    "@mui/x-data-grid": "^6.10.0",
+    "@mui/x-date-pickers": "^5.0.0",
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
@@ -47,6 +54,8 @@
     "eslint-plugin-react-refresh": "^0.4.16",
     "gh-pages": "^6.3.0",
     "globals": "^15.14.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "rollup": "^4.18.1",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
@@ -54,7 +63,8 @@
     "tslib": "^2.6.3",
     "typescript": "^5.2.2",
     "typescript-eslint": "^8.18.2",
-    "vite": "^6.0.5"
+    "vite": "^6.0.5",
+    "vite-plugin-dts": "^4.5.4"
   },
   "keywords": [
     "table",

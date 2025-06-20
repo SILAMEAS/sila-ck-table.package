@@ -1,23 +1,37 @@
 import { defineConfig } from 'vite'
-import path from 'path';
 import react from '@vitejs/plugin-react'
+import dts from 'vite-plugin-dts'
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  base: "/sila-ck-table-mui-rtk-query-npm/",  // ✅ Corrected to match repo name
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-      '@hooks': path.resolve(__dirname, './src/hooks'),
-    },
-  },
-  optimizeDeps: {
-    include: ['react-router-dom','react-waypoint'],
-  },
+  plugins: [react(), dts()],
   build: {
-    rollupOptions: {
-      external: ['react-router-dom'],
+    lib: {
+      entry: 'src/index.ts',     // <-- your main entry file
+      name: 'SilaCkTable',       // <-- global UMD name (for UMD build if needed)
+      fileName: (format) => `index.${format}.js`
     },
-  },
+    rollupOptions: {
+      // List external dependencies that shouldn't be bundled
+      external: [
+        'react',
+        'react-dom',
+        '@mui/material',
+        '@mui/icons-material',
+        '@mui/lab',
+        '@mui/x-data-grid',
+        '@mui/x-date-pickers'
+      ],
+      output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+          '@mui/material': 'MaterialUI',
+          '@mui/icons-material': 'MaterialUIIcons',
+          '@mui/lab': 'MaterialUILab',
+          '@mui/x-data-grid': 'MaterialUIDataGrid',
+          '@mui/x-date-pickers': 'MaterialUIPickers'
+        }
+      }
+    }
+  }
 })
