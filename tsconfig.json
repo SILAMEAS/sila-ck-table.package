@@ -15,7 +15,10 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "allowImportingTsExtensions": true
+    "allowImportingTsExtensions": true,
+     "declaration": true,
+    "emitDeclarationOnly": false,
+    "declarationDir": "./dist/types",
   },
   "include": ["src"]
 }

@@ -1,17 +1,25 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import dts from 'vite-plugin-dts'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import dts from 'vite-plugin-dts';
 
 export default defineConfig({
-  plugins: [react(), dts()],
+  plugins: [
+    react(),
+    dts({
+      outDir: 'dist/types',
+      insertTypesEntry: true,
+      include: ['src'],
+      exclude: ['dist', 'node_modules']
+    }),
+  ],
   build: {
     lib: {
-      entry: 'src/index.ts',     // <-- your main entry file
-      name: 'SilaCkTable',       // <-- global UMD name (for UMD build if needed)
-      fileName: (format) => `index.${format}.js`
+      entry: 'src/index.ts',
+      name: 'SilaCkTable',
+      fileName: (format) => `index.${format}.js`,
+      formats: ['es', 'cjs'],
     },
     rollupOptions: {
-      // List external dependencies that shouldn't be bundled
       external: [
         'react',
         'react-dom',
@@ -34,4 +42,4 @@ export default defineConfig({
       }
     }
   }
-})
+});
