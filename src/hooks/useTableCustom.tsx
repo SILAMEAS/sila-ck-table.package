@@ -15,9 +15,9 @@ const defaultFilter: IFilterTableCustom = {
 };
 
 
-const useTableCustom = <T extends Record<string, any>>(
+export function useTableCustom<T extends Record<string, any>>(
   tableFooterType: EnumTableFooterType,
-) => {
+) {
   /** state */
   const [status, setStatus] = React.useState<string[]>(['']);
   const [filter, setFilter] = React.useState<IFilterTableCustom>(defaultFilter);
@@ -150,4 +150,3 @@ const useTableCustom = <T extends Record<string, any>>(
     isInfiniteScroll: tableFooterType === EnumTableFooterType.infiniteScroll,
   };
 };
-export default useTableCustom;
