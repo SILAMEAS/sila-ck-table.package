@@ -25,9 +25,7 @@ export default defineConfig({
         'react-dom',
         '@mui/material',
         '@mui/icons-material',
-        '@mui/lab',
-        '@mui/x-data-grid',
-        '@mui/x-date-pickers'
+        '@mui/lab'
       ],
       output: {
         globals: {
@@ -35,9 +33,7 @@ export default defineConfig({
           'react-dom': 'ReactDOM',
           '@mui/material': 'MaterialUI',
           '@mui/icons-material': 'MaterialUIIcons',
-          '@mui/lab': 'MaterialUILab',
-          '@mui/x-data-grid': 'MaterialUIDataGrid',
-          '@mui/x-date-pickers': 'MaterialUIPickers'
+          '@mui/lab': 'MaterialUILab'
         }
       }
     }
